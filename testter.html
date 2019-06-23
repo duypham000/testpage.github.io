@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: 'Lato';
+            margin-top: 200px;
+            text-align: center;
+            color: white;
+        }
+
+        #clock {
+            font-weight: 300;
+            font-size: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="clock"></h1>
+<script>      
+    var clock = document.getElementById('clock');
+
+    function hexClock() {
+    var time = new Date();
+    var hours = (time.getHours() % 12).toString();
+    var minutes = time.getMinutes().toString();
+    var seconds = time.getSeconds().toString();
+
+    if (hours.length < 2) {
+        hours = '0' + hours;
+    }
+
+    if (minutes.length < 2) {
+        minutes = '0' + minutes;
+    }
+
+    if (seconds.length < 2) {
+        seconds = '0' + seconds;
+    }
+
+    var clockStr = hours + ' : ' + minutes + ' : ' + seconds;
+
+    clock.textContent = clockStr;
+    }
+
+    hexClock();
+    setInterval(hexClock, 1000);    
+</script>
+</body>
+</html>
